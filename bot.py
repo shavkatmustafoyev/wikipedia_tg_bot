@@ -1,8 +1,3 @@
-"""
-This is an echo bot.
-It echoes any incoming text messages.
-"""
-
 import logging
 import wikipedia
 from aiogram import Bot, Dispatcher, executor, types
@@ -26,14 +21,13 @@ async def send_welcome(message: types.Message):
     await message.reply("Xush kelibsiz")
 
 
-
 @dp.message_handler()
 async def sendWiki(message: types.Message):
-   try:
-       respond = wikipedia.summary(message.text)
-       await message.answer(respond)
-   except:
-       await message.answer("Bu mavzuga oid maqola topilmadi")
+    try:
+        respond = wikipedia.summary(message.text)
+        await message.answer(respond)
+    except:
+        await message.answer("Bu mavzuga oid maqola topilmadi")
 
 
 if __name__ == '__main__':
